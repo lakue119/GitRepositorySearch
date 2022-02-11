@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="item"
+            type="com.lakue.gitrepositorysearch.remote.model.Item" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivLabel"
+            android:src="@drawable/ic_round_phone_android_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_marginStart="8dp"
+            android:id="@+id/tvName"
+            android:text="@{item.full_name}"
+            app:layout_constraintStart_toEndOf="@id/ivLabel"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tvDescription"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="@{item.description}"
+            app:layout_constraintStart_toEndOf="@id/ivLabel"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:id="@+id/tvStar"
+            android:src="@drawable/ic_round_star_24"
+            app:layout_constraintStart_toEndOf="@id/ivLabel"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:tint="@color/yellow" />
+
+        <TextView
+            android:id="@+id/tvStarCount"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:text="@{item.watchers}"
+            app:layout_constraintStart_toEndOf="@id/tvStar"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_marginTop="8dp"
+            android:id="@+id/tvFork"
+            android:layout_marginStart="8dp"
+            android:src="@drawable/ic_baseline_fork_right_24"
+            app:layout_constraintStart_toEndOf="@id/tvStarCount"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:tint="@color/black" />
+
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/tvForkCount"
+            android:layout_marginStart="8dp"
+            android:text="@{item.forks_count}"
+            app:layout_constraintStart_toEndOf="@id/tvFork"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

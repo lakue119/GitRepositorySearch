@@ -17,9 +17,9 @@ class GitRepositoryRemoteDataSourceImpl @Inject constructor(
 ): DataSourceImpl(), GitRepositoryRemoteDataSource {
     val Tag = GitRepositoryRemoteDataSourceImpl::class.java.name
 
-    override suspend fun getGitRepository(search: String): ResultWrapper<ResponseGitRepository> {
+    override suspend fun getGitRepository(search: String, page: Int): ResultWrapper<ResponseGitRepository> {
         return safeApiCall(Dispatchers.IO) {
-            gitRepositoryApi.getPocketInfo(search)
+            gitRepositoryApi.getGitRepository(search, page)
         }
     }
 }

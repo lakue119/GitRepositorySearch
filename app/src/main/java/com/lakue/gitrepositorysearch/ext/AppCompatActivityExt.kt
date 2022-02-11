@@ -8,6 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 
+
+fun AppCompatActivity.isAvailableActivity(block: () -> Unit) {
+    if(!isDestroyed && !isFinishing) {
+        block()
+    }
+}
+
 fun AppCompatActivity.showToast(msg: CharSequence, isLong: Boolean = false) {
     Toast.makeText(
         applicationContext,

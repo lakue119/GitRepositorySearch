@@ -1,5 +1,6 @@
 package com.lakue.gitrepositorysearch.base
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -9,7 +10,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelLazy
 import com.lakue.gitrepositorysearch.BR
 import com.lakue.gitrepositorysearch.ext.showToast
+import com.lakue.gitrepositorysearch.remote.network.ErrorResponse
 import com.lakue.gitrepositorysearch.utils.Event
+import com.lakue.gitrepositorysearch.utils.LoadingDialog
 import java.lang.reflect.ParameterizedType
 
 open class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
@@ -17,6 +20,10 @@ open class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
 ) : AppCompatActivity() {
 
     protected lateinit var binding: B
+
+    var rvloading = false
+    var isLastPage = false
+    var isInit = true
 
     private val viewModelClass = ((javaClass.genericSuperclass as ParameterizedType?)
         ?.actualTypeArguments
@@ -38,6 +45,21 @@ open class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
         }
         viewModel {
             liveToast.observe(this@BaseActivity) { this@BaseActivity.showToast(it) }
+        }
+
+        viewModel.liveNewWorkErrorDialog.observe(this) {
+            if (it.isNotEmpty()) {
+                showToast(it)
+            }
+        }
+        viewModel.liveError.observe(this@BaseActivity) { response ->
+            LoadingDialog.hideLoading(this)
+            if(response == null){
+                return@observe
+            }
+            val data = response as ErrorResponse
+            showToast(data.message)
+
         }
     }
 

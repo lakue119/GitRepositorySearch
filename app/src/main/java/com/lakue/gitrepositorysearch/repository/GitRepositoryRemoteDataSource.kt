@@ -4,5 +4,5 @@ import com.lakue.gitrepositorysearch.remote.model.ResponseGitRepository
 import com.lakue.gitrepositorysearch.remote.network.ResultWrapper
 
 interface GitRepositoryRemoteDataSource {
-    suspend fun getGitRepository(search: String): ResultWrapper<ResponseGitRepository>
+    suspend fun getGitRepository(search: String, page: Int): ResultWrapper<ResponseGitRepository>
 }
