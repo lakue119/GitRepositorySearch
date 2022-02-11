@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.lakue.gitrepositorysearch.base.BaseViewModel
 import com.lakue.gitrepositorysearch.remote.model.Item
+import com.lakue.gitrepositorysearch.remote.model.base.CellType
 import com.lakue.gitrepositorysearch.repository.GitRepositoryRemoteDataSource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -31,13 +32,18 @@ class MainViewModel @Inject constructor(
         }
     }
 
-    fun addRepositoryItem(items: Item){
-        repositoryItems.add(items)
-        _liveRepositoryItems.value = repositoryItems
-    }
-
     fun addRepositoryItems(items: List<Item>){
+        if(repositoryItems.isNotEmpty() && repositoryItems.last().type == CellType.LOADING_CELL){
+            repositoryItems.removeAt(repositoryItems.lastIndex)
+        }
         repositoryItems.addAll(items)
+        if(repositoryItems.isEmpty()){
+            //데이터 없을 때 처리
+            repositoryItems.add(Item(type = CellType.EMPTY_CELL))
+        } else {
+            //마지막데이터 로딩바 생성
+            repositoryItems.add(Item(type = CellType.LOADING_CELL))
+        }
         _liveRepositoryItems.value = repositoryItems
     }
 

@@ -48,11 +48,14 @@ open class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
         }
 
         viewModel.liveNewWorkErrorDialog.observe(this) {
+            rvloading = false
+            LoadingDialog.hideLoading(this)
             if (it.isNotEmpty()) {
                 showToast(it)
             }
         }
         viewModel.liveError.observe(this@BaseActivity) { response ->
+            rvloading = false
             LoadingDialog.hideLoading(this)
             if(response == null){
                 return@observe

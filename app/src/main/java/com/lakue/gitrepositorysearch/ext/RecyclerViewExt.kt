@@ -34,8 +34,7 @@ fun RecyclerView.setBindItem(
         setAdapter(adapter)
     } else {
         modelList?.let{
-            (this.adapter as BaseAdapter<*, *>).submitList(it)
-//            (this.adapter as BaseAdapter<*, *>).notifyDataSetChanged()
+            (this.adapter as BaseAdapter<Model, *>).addItem(it)
         }
     }
 
