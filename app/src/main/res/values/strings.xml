@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">GitRepositorySearch</string>
+
+    <!--    dialog-->
+    <string name="global_error">ERROR</string>
+    <string name="global_retry">다시 시도</string>
+    <string name="global_retry_plz">다시 시도해주세요.</string>
+    <string name="global_close">닫기</string>
+    <string name="global_ok">확인</string>
+    <string name="dialog_client_error">일시적으로 오류가 발생했습니다.\n다시 시도해주세요.</string>
+    <string name="dialog_server_error">서버와의 연결 중 문제가 발생했습니다.\n다시 시도해주세요.</string>
+    <string name="dialog_network_error">네트워크 상태가 불안정합니다.\n다시 시도해주세요.</string>
+    <string name="dialog_timeout_error">입력시간이 초과되었습니다.\n다시 시도해주세요.</string>
+    <string name="empty_search">검색 결과가 없습니다.</string>
+    <string name="edit_search">검색어를 입력하세요.</string>
+
 </resources>

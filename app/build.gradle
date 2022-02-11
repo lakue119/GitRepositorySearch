@@ -39,7 +39,7 @@ android {
             applicationIdSuffix ".dev"
             versionCode 1
             versionName "1.0.0"
-            buildConfigField "String", "BASE_URL", '"https://api.kinolights.com"'
+            buildConfigField "String", "BASE_URL", '"https://api.github.com"'
         }
 
         ope {
@@ -47,7 +47,7 @@ android {
             applicationIdSuffix ".ope"
             versionCode 1
             versionName "1.0.0"
-            buildConfigField "String", "BASE_URL", '"https://api.kinolights.com"'
+            buildConfigField "String", "BASE_URL", '"https://api.github.com"'
         }
     }
     buildFeatures {

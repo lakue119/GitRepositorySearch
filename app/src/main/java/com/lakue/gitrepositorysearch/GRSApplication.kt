@@ -10,16 +10,16 @@ import dagger.hilt.android.HiltAndroidApp
 class GRSApplication: Application(){
 
     companion object{
-        lateinit var OTTApplication: GRSApplication
+        lateinit var GRSApplication: GRSApplication
 
         fun getInstance(): GRSApplication{
-            return OTTApplication
+            return GRSApplication
         }
     }
 
     override fun onCreate() {
         super.onCreate()
-        OTTApplication = this
+        GRSApplication = this
         init(this)
     }
 }
