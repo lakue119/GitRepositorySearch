@@ -33,6 +33,8 @@ object LoadingDialog {
         }
     }
 
+
+
     fun hideLoading(activity: BaseActivity<*,*>){
         activity.isAvailableActivity{
             try{

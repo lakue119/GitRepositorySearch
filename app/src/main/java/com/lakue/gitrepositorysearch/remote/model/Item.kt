@@ -13,6 +13,8 @@ data class Item(
     @SerializedName("forks_count") val forks_count: String = "",
     override var type: CellType = CellType.GIT_REPOSITORY_CELL
 ): Model() {
+
+    //개선사항
     override fun getType1(): CellType {
         return type ?: CellType.GIT_REPOSITORY_CELL
     }

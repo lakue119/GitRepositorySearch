@@ -7,7 +7,8 @@ data class ErrorResponse(
 ){
     data class Error(
         val code: String,
+        //왜 이런식으로 만들어지는지 체크
         val `field`: String,
-        val resource: String
+        val resource: String,
     )
 }

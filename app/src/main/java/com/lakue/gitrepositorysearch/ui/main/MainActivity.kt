@@ -25,7 +25,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
         val adapter = binding.rvRepository.adapter
         if (adapter?.itemCount!! > 0 && !rvloading && lastPosition >= adapter.itemCount - 2) {
             getRepositoryList()
-        }
+        } 
     }
 
     val adapterListsnser = object : RepositoryListListener {
@@ -73,9 +73,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.a
         isLastPage = false
         binding.apply{
             llBackground.clearFocus()
-            if(rvRepository.adapter != null){
-                (rvRepository.adapter as BaseAdapter<*,*>).clear()
-            }
+            (rvRepository.adapter as? BaseAdapter<*,*>)?.clear()
         }
     }
 

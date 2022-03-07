@@ -23,7 +23,6 @@ open class BaseActivity<B : ViewDataBinding, VM : BaseViewModel>(
 
     var rvloading = false
     var isLastPage = false
-    var isInit = true
 
     private val viewModelClass = ((javaClass.genericSuperclass as ParameterizedType?)
         ?.actualTypeArguments
