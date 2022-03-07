@@ -19,6 +19,8 @@ class MainViewModel @Inject constructor(
     val liveKeyword = MutableLiveData("")
 
     private val repositoryItems = ArrayList<Item>()
+
+    //빈값일때 뭐가나올까? 로그찍어보기.
     private val _liveRepositoryItems = MutableLiveData<List<Item>>()
     val liveRepositoryItems: LiveData<List<Item>> = _liveRepositoryItems
 
@@ -30,6 +32,7 @@ class MainViewModel @Inject constructor(
             page++
             responseValidation(response)
         }
+
     }
 
     fun addRepositoryItems(items: List<Item>){

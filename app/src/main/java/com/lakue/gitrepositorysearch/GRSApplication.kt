@@ -9,6 +9,8 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class GRSApplication: Application(){
 
+    //왜 싱글톤 썻는지
+    //stati과 차이점
     companion object{
         lateinit var GRSApplication: GRSApplication
 
